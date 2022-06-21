@@ -25,7 +25,7 @@ class Requester:
         self.tasks["LAST"] = {"SPECIAL"}
         self.tasks["FIRST"] = {"SPECIAL"}
         self.tasks["REFRESH_PROXY"] = {"SPECIAL"}
-        self.reloadDriver()
+        self.reloadDriver(True)
     def refreshProxy(self):
         '''
         Iterates through `self.proxies` to find an unused `Proxy` object, then reloads the Selenium driver
@@ -38,7 +38,7 @@ class Requester:
                     self.proxy.used = True
                     break
         else: print("Requester.refreshProxy() was run without defined proxies. Continuing.")
-        self.reloadDriver()
+        self.reloadDriver(False)
     def performTask(self, task, prevTask = ""):
         '''
         Runs a task with key `task` from `self.tasks`. Subsequent calls should
@@ -195,10 +195,12 @@ class Requester:
             )
         finally:
             return element
-    def reloadDriver(self):
+    def reloadDriver(self, initialCreation=False):
         '''
         Reloads the Requester's Selenium `webdriver`, updating proxy information in the process.
         '''
+        if not initialCreation:
+            self.driver.quit()
         options = webdriver.FirefoxOptions()
         options.headless = self.headless
         if self.proxies is not None:
