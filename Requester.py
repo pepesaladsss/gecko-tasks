@@ -62,6 +62,7 @@ class Requester:
             case "REFRESH_PROXY":
                 specialTask = True
                 self.refreshProxy()
+                self.performTask(prevTask, prevTask="REFRESH_PROXY")
             case "FIRST":
                 specialTask = True
                 self.performTask(tasks_[0], prevTask=prevTask)
@@ -116,7 +117,7 @@ class Requester:
                         self.driver.get(task["URL"])
                         Success = True
                     except:
-                        self.performTask(self.tasks[task["ERROR_FINISH"]], prevTask=taskName)
+                        self.performTask(task["ERROR_FINISH"], prevTask=taskName)
                     if Success: self.performTask(task["SUCCESS_FINISH"], prevTask=taskName)
                 case "DELAY":
                     Success = False
