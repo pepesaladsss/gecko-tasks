@@ -23,7 +23,7 @@ class RequestHandler:
         for thread in self.threads: thread.start()
     def generateRequester(self, id):
         print(f"Generating Requester #{id}")
-        requester = Requester(id, self.proxyList, self.taskList)
+        requester = Requester(id, self.proxyList, self.taskList, self.config["Headless"])
         self.requesterList.append(requester)
         requester.performTask(list(self.taskList)[0])
 if __name__ == "__main__":
