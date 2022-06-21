@@ -201,7 +201,7 @@ class Requester:
         Reloads the Requester's Selenium `webdriver`, updating proxy information in the process.
         '''
         options = webdriver.FirefoxOptions()
-        options.headless = False
+        options.headless = self.headless
         if self.proxies is not None:
             options.set_preference("network.proxy.type", 1)
             options.set_preference("network.proxy.http",self.proxy.ip)
