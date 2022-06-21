@@ -1,0 +1,34 @@
+{
+    "Requester_Count": 1,
+    "Proxy_File": "",
+    "Proxy_Use_Count": 15,
+    "Tasks": {
+        "LOAD_GOOGLE_HOME_PAGE": {
+            "TYPE": "GET",
+            "URL": "https://google.com/",
+            "SUCCESS_FINISH": "NEXT",
+            "ERROR_FINISH": "REFRESH_PROXY"
+        },
+        "FIND_SEARCH_BOX": {
+            "TYPE": "FIND_ELEMENT_OUTPUT_TO_VAR",
+            "BY": "XPATH",
+            "VALUE": "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input",
+            "VARIABLE_NAME": "SearchBoxElement",
+            "SUCCESS_FINISH": "NEXT",
+            "ERROR_FINISH": "NEXT"
+        },
+        "SEND_SEARCH_QUERY": {
+            "TYPE": "SEND_KEYS",
+            "ELEMENT": "SearchBoxElement",
+            "VALUE": "gecko tasks github",
+            "SUCCESS_FINISH": "NEXT",
+            "ERROR_FINISH": "NEXT"
+        },
+        "DELAY_SO_YOU_CAN_READ": {
+            "TYPE": "DELAY",
+            "VALUE": 15,
+            "SUCCESS_FINISH": "STOP",
+            "ERROR_FINISH": "STOP"
+        }
+    }
+}
