@@ -1,4 +1,34 @@
-# Gecko Tasks Documentation - Tasks
+# Gecko Tasks
+
+Gecko Tasks is a simple-to-use program designed to make it significantly easier to get started making programs to crawl or debug websites. It uses Selenium with geckodriver to simulate user behavior, with the optional ability to use a list of proxies for Requesters to use. You can scale it up to as many Requesters as you want using the Tasks.json file which includes all of Gecko Tasks’ configuration options.
+
+Gecko Tasks is **not** a lightweight program by nature. It runs actual browser instances (Completely separate from your own, using a standalone executable of Firefox's geckodriver), not *just* web requests. This means that per requester, you could be looking at about 300mb of RAM usage, which you’ll need to consider as you scale up.
+
+
+## Installation
+
+To setup Gecko Tasks, you simply need:
+- Python 3.10 installed (Older versions won't work, tested to be working on 3.10.2)
+- A download of [geckodriver](https://github.com/mozilla/geckodriver/releases)
+- Selenium installed via pip
+
+### Python Installation
+You can find the installation page for Python [here](https://www.python.org/ftp/python/3.10.5/python-3.10.5-amd64.exe), I suggest you check the "Add to PATH" checkbox during installation.
+
+### geckodriver Installation
+Head over to [geckodriver's GitHub](https://github.com/mozilla/geckodriver/releases) and download the latest release, then drag the executable into the same folder as Gecko Tasks' files.
+
+### Python Dependencies
+To install all of Gecko Tasks' dependencies, open up Command Prompt, then run
+`pip install selenium`
+
+Then, restart command prompt (or any IDE you're using), and you should be good to go.
+
+## First Time Setup
+Running RequestHandler.py will start up a premade sequence of Tasks demonstrating what Gecko Tasks does.
+Open `Tasks.json` and you'll find some variables you can change to your liking. If you don't want to use proxies, you can leave `Proxy_File` empty.
+
+## Creating Tasks
 
 ### `ERROR_FINISH and SUCCESS_FINISH` - Don’t use as Task Names.
 
@@ -202,17 +232,3 @@ If you have a variable created by another task, you can append the variable’s 
 **`NEWLINE`** `(TRUE/FALSE)` - Creates a new line at the *end* of the variable’s data, useful for repeatedly printing content to a file.
 
 **`OUTPUT_FILE_NAME`** - The name of the file you want to output to.
-
-### **`APPEND_VARIABLE_TO_FILE_WITH_PARAMETERS`**
-
-Same as **`APPEND_VARIABLE_TO_FILE`** but allows you to have more control over *how* you write the variable(s) to the output file.
-
-```json
-"APPEND_VARIABLE_TO_FILE_WITH_PARAMETERS_EXAMPLE": {
-    "TYPE": "APPEND_VARIABLE_TO_FILE_WITH_PARAMETERS"
-		"OUTPUT": "example: [VariableName] Text here will output alongside the variable name.",
-    "OUTPUT_FILE": "Example.txt"
-}
-```
-
-**`OUTPUT`** - You can customize this to output whatever you want by putting the **`[$VariableName$]`** placeholder and replacing **`VariableName`** with the name of any variable set by another task.
