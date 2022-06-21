@@ -2,6 +2,7 @@
     "Requester_Count": 1,
     "Proxy_File": "",
     "Proxy_Use_Count": 15,
+    "Headless": "False",
     "Tasks": {
         "LOAD_GOOGLE_HOME_PAGE": {
             "TYPE": "GET",
