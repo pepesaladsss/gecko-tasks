@@ -8,10 +8,12 @@ import time
 
 
 class Requester:
-    def __init__(self, id, proxies, tasks):
+    def __init__(self, id, proxies, tasks, headless="True"):
         self.id = id
         self.proxies = proxies
         self.objects = {}
+        if headless.lower() == "true": self.headless = True
+        elif headless.lower() == "false": self.headless = False
         if self.proxies is not None:
             for proxy in proxies:
                 if not proxy.used:
