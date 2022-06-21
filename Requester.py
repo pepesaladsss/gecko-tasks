@@ -170,7 +170,6 @@ class Requester:
                         element = self.objects[task["ELEMENT"]]
                         element.clear()
                         element.send_keys(task["VALUE"])
-                        element.send_keys(Keys.ENTER)
                         Success = True
                     except:
                         self.performTask(task["ERROR_FINISH"], prevTask=taskName)
