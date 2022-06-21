@@ -7,7 +7,7 @@ Gecko Tasks is **not** a lightweight program by nature. It runs actual browser i
 
 ## Installation
 
-For installing/setting up Gecko Tasks, you'll need to install [Python **3.10**+](https://www.python.org/downloads/), run `pip install selenium`, and download [geckodriver](https://github.com/mozilla/geckodriver/releases) from Mozilla's GitHub, then drag the executable into Gecko Tasks' folder. 
+For installing/setting up Gecko Tasks, you'll need to install [Python **3.10**+](https://www.python.org/downloads/), run `pip install selenium`, and download [geckodriver](https://github.com/mozilla/geckodriver/releases) from Mozilla's GitHub, then drag the executable into Gecko Tasks' folder. You may need to install Mozilla Firefox if you don't have it already installed.
 
 After doing all of that, you'll likely want to check out `Tasks.json` and change the options there to your liking. Run `python RequestHandler.py` to run Gecko Tasks after creating your own Task Flow, or to run the example that Gecko Tasks comes shipped with to make sure everything is working as intended.
 ## Creating Tasks
