@@ -7,27 +7,9 @@ Gecko Tasks is **not** a lightweight program by nature. It runs actual browser i
 
 ## Installation
 
-To setup Gecko Tasks, you simply need:
-- Python 3.10 installed (Older versions won't work, tested to be working on 3.10.2)
-- A download of [geckodriver](https://github.com/mozilla/geckodriver/releases)
-- Selenium installed via pip
+For installing/setting up Gecko Tasks, you'll need to install [Python **3.10**+](https://www.python.org/downloads/), run `pip install selenium`, and download [geckodriver](https://github.com/mozilla/geckodriver/releases) from Mozilla's GitHub, then drag the executable into Gecko Tasks' folder. 
 
-### Python Installation
-You can find the installation page for Python [here](https://www.python.org/ftp/python/3.10.5/python-3.10.5-amd64.exe), I suggest you check the "Add to PATH" checkbox during installation.
-
-### geckodriver Installation
-Head over to [geckodriver's GitHub](https://github.com/mozilla/geckodriver/releases) and download the latest release, then drag the executable into the same folder as Gecko Tasks' files.
-
-### Python Dependencies
-To install all of Gecko Tasks' dependencies, open up Command Prompt, then run
-`pip install selenium`
-
-Then, restart command prompt (or any IDE you're using), and you should be good to go.
-
-## First Time Setup
-Running RequestHandler.py will start up a premade sequence of Tasks demonstrating what Gecko Tasks does.
-Open `Tasks.json` and you'll find some variables you can change to your liking. If you don't want to use proxies, you can leave `Proxy_File` empty.
-
+After doing all of that, you'll likely want to check out `Tasks.json` and change the options there to your liking. Run `python RequestHandler.py` to run Gecko Tasks after creating your own Task Flow, or to run the example that Gecko Tasks comes shipped with to make sure everything is working as intended.
 ## Creating Tasks
 
 ### `ERROR_FINISH and SUCCESS_FINISH` - Don’t use as Task Names.
