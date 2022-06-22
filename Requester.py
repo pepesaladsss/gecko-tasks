@@ -11,6 +11,7 @@ class Requester:
         self.id = id
         self.proxies = proxies
         self.objects = {}
+        self.useCount = 0
         if headless.lower() == "true": self.headless = True
         elif headless.lower() == "false": self.headless = False
         if self.proxies is not None:
@@ -48,8 +49,13 @@ class Requester:
         `NEXT` - Runs the task 1 position after the index of `prevTask` in `self.tasks`\n
         `PREVIOUS` - Runs the task 1 position before the index of `prevTask` in `self.tasks`\n
         '''
-        specialTask = False
         tasks_ = list(self.tasks)
+        if self.useCount > 900:
+            specialTask = True
+            task = ""
+            prevTask = ""
+        else:
+            specialTask = False
         if prevTask != "": 
             if self.proxies is not None:
                 self.proxy.useCount += 1
@@ -72,7 +78,7 @@ class Requester:
             case "PREVIOUS":
                 specialTask = True
                 self.performTask(tasks_[tasks_.index(prevTask)-1], prevTask=prevTask)
-        if not specialTask:
+        if not specialTask and task != "":
             taskName = task
             print(f"Requester #{self.id} | Task: {taskName} | Origin: {prevTask}")
             task = self.tasks[task]
