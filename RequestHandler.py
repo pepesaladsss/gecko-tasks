@@ -25,7 +25,9 @@ class RequestHandler:
         print(f"Generating Requester #{id}")
         requester = Requester(id, self.proxyList, self.taskList, self.config["Headless"])
         self.requesterList.append(requester)
-        requester.performTask(list(self.taskList)[0])
+        while True:
+            requester.performTask(list(self.taskList)[0])
+            requester.useCount = 0
 if __name__ == "__main__":
     rh = RequestHandler()
     rh.start()
